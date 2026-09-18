@@ -8,6 +8,7 @@ import { BirthdayIntro } from "@/components/birthday/BirthdayIntro";
 import { BirthdayHero } from "@/components/birthday/BirthdayHero";
 import { JokeSection } from "@/components/birthday/JokeSection";
 import { FriendshipMessage } from "@/components/birthday/FriendshipMessage";
+import { MemoriesReel } from "@/components/birthday/MemoriesReel";
 import { BirthdayCake } from "@/components/birthday/BirthdayCake";
 import { FriendMessages } from "@/components/birthday/FriendMessages";
 import { FinalCelebration } from "@/components/birthday/FinalCelebration";
@@ -89,7 +90,10 @@ export default function BirthdayPage() {
           {/* Section 3: Emotional Message From The Three Idiots */}
           <FriendshipMessage />
 
-          {/* Section 4: Interactive Birthday Cake & Wish Ceremony */}
+          {/* Section 4: Golden Moments Video Reel */}
+          <MemoriesReel />
+
+          {/* Section 5: Interactive Birthday Cake & Wish Ceremony */}
           <div ref={surpriseSectionRef}>
             <BirthdayCake
               onPlayCandleBlow={playCandleBlow}

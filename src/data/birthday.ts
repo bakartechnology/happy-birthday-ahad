@@ -16,6 +16,16 @@ export interface Joke {
   emoji: string;
 }
 
+export interface MemoryVideo {
+  id: string;
+  src: string;
+  title: string;
+  subtitle: string;
+  tag: string;
+  date: string;
+  emoji: string;
+}
+
 export interface BirthdayData {
   recipient: {
     name: string;
@@ -48,6 +58,12 @@ export interface BirthdayData {
     senderLine: string;
     paragraphs: string[];
     signoff: string;
+  };
+  memories: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    videos: MemoryVideo[];
   };
   cake: {
     badge: string;
@@ -144,6 +160,31 @@ export const birthdayData: BirthdayData = {
       "Keep smiling, keep elevating, and keep being the solid, dependable brother you are.",
     ],
     signoff: "Happy Birthday, bro! Always got your back. 🎂✨",
+  },
+  memories: {
+    badge: "Cinema of Memories 🎬",
+    title: "Golden Moments With The Boys ✨",
+    subtitle: "Real evidence that we actually hang out and survive each other's chaotic energy 😂",
+    videos: [
+      {
+        id: "bike-ride",
+        src: "/videos/memory-bike-ride.mp4",
+        title: "The Ride of Legends 🛵💨",
+        subtitle: "Bike pe load zyada, dimagh kam, aur yaari full! 😂",
+        tag: "On The Road",
+        date: "Memory Reel #1",
+        emoji: "🔥",
+      },
+      {
+        id: "hangout",
+        src: "/videos/memory-hangout.mp4",
+        title: "Food, Chaos & Laughs 🍔🍕",
+        subtitle: "Khaana peena aur Ahad se treat mangna is a permanent mood! 🤝",
+        tag: "Hangout Vibes",
+        date: "Memory Reel #2",
+        emoji: "🍟",
+      },
+    ],
   },
   cake: {
     badge: "Interactive Ritual",
