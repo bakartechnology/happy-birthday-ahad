@@ -41,9 +41,21 @@ export function FinalCelebration({
       }
     }
 
-    if (typeof window !== "undefined" && navigator.clipboard) {
+    if (typeof window !== "undefined") {
       try {
-        await navigator.clipboard.writeText(window.location.href);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(window.location.href);
+        } else {
+          const textArea = document.createElement("textarea");
+          textArea.value = window.location.href;
+          textArea.style.position = "fixed";
+          textArea.style.opacity = "0";
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textArea);
+        }
         setCopied(true);
         setTimeout(() => setCopied(false), 2500);
       } catch {

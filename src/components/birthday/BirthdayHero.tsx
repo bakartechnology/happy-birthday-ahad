@@ -21,16 +21,23 @@ export function BirthdayHero({ onScrollToExplore }: BirthdayHeroProps) {
       fireCelebrationConfetti();
     }, 400);
 
+    const headlineEl = headlineRef.current;
+
     // Subtle GSAP entrance for hero elements
-    if (headlineRef.current) {
+    if (headlineEl) {
       gsap.fromTo(
-        headlineRef.current,
+        headlineEl,
         { scale: 0.85, opacity: 0, y: 30 },
         { scale: 1, opacity: 1, y: 0, duration: 1.2, ease: "elastic.out(1, 0.75)" }
       );
     }
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (headlineEl) {
+        gsap.killTweensOf(headlineEl);
+      }
+    };
   }, []);
 
   return (

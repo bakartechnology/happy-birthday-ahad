@@ -25,11 +25,13 @@ export default function BirthdayPage() {
     playCandleBlow,
     playCardFlip,
     playFanfare,
+    startBirthdayMelody,
   } = useSoundEffects();
 
   const handleOpenCard = () => {
     setCardOpened(true);
     playFanfare();
+    startBirthdayMelody();
   };
 
   const handleScrollToJokes = () => {
